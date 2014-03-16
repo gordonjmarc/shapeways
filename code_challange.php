@@ -10,9 +10,9 @@ if(count($argv) < 3) {
 $inputFile = $argv[1];
 $outputFile = $argv[2];
 
-file_put_contents($outputFile, '');
+file_put_contents($outputFile, ''); //clear output file
 
-$handle = fopen($inputFile, "r");
+$handle = fopen($inputFile, "r"); //read input file
 $readInputFile = file_get_contents($inputFile);
 $inputLines = explode("\n", $readInputFile);
 
@@ -70,7 +70,7 @@ foreach($artists as $artist) {
 $pairsToCheck = array_keys($pairsToCheck); // we only wanted the band names, drop the key values
 
 
-//print out
+//walk artist pairs to check, if intersection of artists is equal or greater to 50, they meet the requirements, echo to the output file
 
 foreach($pairsToCheck as $pairStr) {
 
@@ -81,7 +81,7 @@ foreach($pairsToCheck as $pairStr) {
 
 	$intersect = array_intersect($artistFrequencyMap[$artist1] , $artistFrequencyMap[$artist2]);
 
-	if( count($intersect)  >= 50) {
+	if( count($intersect) >= 50) {
 		file_put_contents($outputFile , $pairStr. "\n", FILE_APPEND);
 
 	}
