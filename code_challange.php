@@ -40,7 +40,6 @@ foreach($favoritesArr as $currentFavoritesKey => $currentFavoritesArr) {
 
 //remove artists who don't have 50 or more occurances in favorite arrays
 foreach($artistFrequencyMap  as $artist => $frequency) {
-
 	if(!(count($frequency) >= 50)) {
 		unset($artistFrequencyMap[$artist]);
 	}
@@ -52,7 +51,6 @@ $pairsToCheck = array();
 
 foreach($artists as $artist) {
 	foreach($artists as $pairedArtist) {
-
 		if($artist == $pairedArtist) {
 			continue;
 		}
@@ -71,9 +69,7 @@ $pairsToCheck = array_keys($pairsToCheck); // we only wanted the band names, dro
 
 
 //walk artist pairs to check, if intersection of artists is equal or greater to 50, they meet the requirements, echo to the output file
-
 foreach($pairsToCheck as $pairStr) {
-
 	$pairStrs = explode(",",$pairStr);
 
 	$artist1= $pairStrs[0];
