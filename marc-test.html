@@ -18,6 +18,10 @@
       /* display: none;*/
     }
 
+    #question2 {
+      color: #0000FF;
+    }
+
     #question2a {
       color: #0000FF;
     }
@@ -43,22 +47,52 @@
     	display:inline;
     }
 
+    #theTest  {
+    	display: none;
+    }
+
+    #introduction
+	{
+	  overflow: hidden;
+	}
+
   </style>
+  <script src="http://yui.yahooapis.com/3.15.0/build/yui/yui-min.js"></script>
   <script type="text/javascript">
     // Q: Describe what these functions do using line comments
-    function alertValue(value)
+    function alertValue(value) //sends an alert box with argued value
     {
       window.alert(value);
     }
 
-    function beginTheTest()
+    /*
+    function beginTheTest() // hides test on initial load, displays the intro block
     {
       var introduction = document.getElementById("introduction");
       var theTest = document.getElementById("theTest");
 
       introduction.style.display = "none";
       theTest.style.display = "block";
-    }
+    }*/
+
+    	YUI().use('transition', function (Y) {
+	  var introduction = Y.one('#introduction'),
+	      test = Y.one('#theTest');
+
+	  Y.one('#start').on('click', function (e) {
+	    e.preventDefault();
+
+	    introduction.transition({
+	      width: 0,
+	      height: 0
+	    });
+
+	    test.setStyle('display', 'block').transition({
+	      opacity: 1
+	    });
+	  });
+	});
+
   </script>
   <title>Shapeways.com HTML Test</title>
 </head>
@@ -76,7 +110,7 @@
       Please modify this HTML with your answers (keep all CSS and Javascript in this file).
       <br><br>
       Save your test as [yourName]-test.html<br><br>
-      <a href="javascript:void(0);" onclick="beginTheTest()">Click here to begin the test</a>
+      <a id="start" href="#" >Click here to begin the test</a>
     </p>
   </div>
   <style type="text/css">
@@ -87,7 +121,7 @@
       opacity:0.4;
     }
   </style>
-  <div id="theTest" style="display:none;">
+  <div id="theTest">
 	  <h2>
 		Questions
 	  </h2>
@@ -96,7 +130,7 @@
         Add this question to the unordered list shown below.
       </div>
       <ul>
-        <li id="question2" style="color: #0000FF;"><strong>Q:</strong>
+        <li id="question2"><strong>Q:</strong>
         Make this question blue using an inline style.
         </li>
         <li id="question2a"><strong>Q:</strong>
@@ -220,7 +254,7 @@
           </ul>
         </li>
         <li id="question14"><strong>Q:</strong>
-        <h3 style="display:inline"> Feature Question </h3><br>
+        <h3> Feature Question </h3><br>
         <ol>
         <li> Show how to include a variable in a page using PHP</li>
         	<pre>
@@ -254,7 +288,7 @@
         </ol>
         </li>
         <li id="question15"><strong>Q:</strong>
-        <h3 style="display:inline"> Adventure Question </h3><br>
+        <h3> Adventure Question </h3><br>
           Describe the MVC design pattern as it applies to web servers - start from initial HTTP request and end with writing the response.
 
           <ol>
@@ -266,13 +300,13 @@
 
         </li>
         <li id="question16"><strong>Q:</strong>
-        <h3 style="display:inline"> Feature Question </h3><br>
+        <h3> Feature Question </h3><br>
           Describe the pros and cons of version control.
           <p>
           		<ul>
 	          		<li>
 	          		Some Pros:
-	          		Version control promotes incremental changes in code to be stored continuously during progress of the project. It leaves hooks or points in the code where previous versions may be retrieve, or compared to the current HEAD or latest revision. It allows developers to have a common place to both store/retrieve code.
+	          		Version control promotes incremental changes in code to be stored continuously during progress of the project. It leaves hooks or points in the code where previous versions may be retrieve, or compared to the current HEAD or latest revision. It allows developers to have a common place to both store/retrieve code. It promotes transparency and availability of latest code.
 	          		</li>
 	          		<li>
 	          		Some Cons:
@@ -290,5 +324,7 @@
       /* color: #FFFFFF; */
     }
   </style>
+  <script>
+</script>
 </body>
 </html>
