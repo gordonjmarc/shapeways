@@ -15,8 +15,27 @@
     }
     .invisibleQuestion
     {
-      display: none;
+      /* display: none;*/
     }
+
+    #question2a {
+      color: #0000FF;
+    }
+
+    #question5 {
+    	margin-top: 15px;
+    	background-image:url("http://images1.sw-cdn.net/model/picture/674x501_1496035_1716790_1390960862.jpg");
+    }
+
+    .instructionContent {
+    		color: #383838;
+    }
+
+    #question7 {
+    	font-weight:bold
+    }
+
+
 
   </style>
   <script type="text/javascript">
@@ -71,10 +90,10 @@
         Add this question to the unordered list shown below.
       </div>
       <ul>
-        <li id="question2"><strong>Q:</strong>
+        <li id="question2" style="color: #0000FF;"><strong>Q:</strong>
         Make this question blue using an inline style.
         </li>
-        <li><strong>Q:</strong>
+        <li id="question2a"><strong>Q:</strong>
         Make sure this question has a unique id.
         Make this question blue using an external id selector.
         </li>
@@ -89,15 +108,46 @@
         Give the table a border.<br>
         &mdash;
         Give the middle cell a red background.<br>
+
+        	<table border="1">
+        		<tr>
+        			<td width="45px"> </td>
+        			<td width="45px" style="background-color:#FF0000;">  </td>
+        			<td width="45px"> </td>
+        		</tr>
+        		<tr>
+        			<td width="45px"> </td>
+        			<td width="45px" style="background-color:#FF0000;"> </td>
+        			<td width="45px"> </td>
+        		</tr>
+        		<tr>
+        			<td width="45px"> </td>
+        			<td width="45px" style="background-color:#FF0000;"> </td>
+        			<td width="45px"> </td>
+        		</tr>
+        		 <tr>
+        			<td width="45px"> </td>
+        			<td width="45px" style="background-color:#FF0000;"> </td>
+        			<td width="45px"> </td>
+        		</tr>
+        		<tr>
+        			<td width="45px"> </td>
+        			<td width="45px" style="background-color:#FF0000;"> </td>
+        			<td width="45px"> </td>
+        		</tr>
+       	</table>
         </li>
         <li id="question5"><strong>Q:</strong>
         Create a link to the URL http://www.shapeways.com/jobs and make the link text &quot;Jobs @ Shapeways&quot;.
         Give this question a top margin of 15px, and a background image from the internet.
+        	<a href="URL http://www.shapeways.com/jobs"> Jobs @ Shapeways </a>
         </li>
         <li id="question6"><strong>Q:</strong>
           <h3 style="display:inline"> Feature Question </h3><br>
           Create a button below this sentence.<br>
           When the button is clicked, make an alert box appear that says &quot;I&#39;ve done it!&quot;<br>
+
+          <button onClick="alert('I&#8217;ve done it');"  type="button">Click Me!</button>
         </li>
         <li id="question7"><strong>Q:</strong>
           Make this question bold using css.  Use an external class selector to apply the style.
@@ -113,6 +163,11 @@
         <li id="question10"><strong>Q:</strong>
         <span>
           Describe the differences between the IE6, IE7, and W3C box models.
+
+          <p>
+          		IE6 had what was known as the box model bug. Basically the width didn't include border and padding as well in it's calculation.
+          		IE would go into quirks or standards mode depending on the doc type sniffed out,
+          <p>
         </span>
         </li>
         <li id="question11"><strong>Q:</strong>
@@ -160,18 +215,63 @@
         <h3 style="display:inline"> Feature Question </h3><br>
         <ol>
         <li> Show how to include a variable in a page using PHP</li>
+        	<pre>
+        		$varx ="value";
+        	</pre>
         <li> Show how to loop over a collection of elements in PHP</li>
+        	<pre>
+        		$arr = array("val1", "val2", "val3");
+        		foreach($arr as $arrValue) {
+        			//do something
+        		}
+        	</pre>
         <li> Show an IF/ELSEIF/ELSE conditional in PHP</li>
+        	<pre>
+        		$val1 = true;
+        		$val2 = true;
+        		if($val1 == "true") {
+        			//case1
+        		} elseif($val2 == "true") {
+        			//case2
+        		} else {
+        			//case3
+        		}
+        </pre>
         <li> Show three ways to include content from another file in PHP</li>
+        	<pre>
+        		include("some_file");
+        		require("some other file");
+        		require("yet some other file");
+       	 </pre>
         </ol>
         </li>
         <li id="question15"><strong>Q:</strong>
         <h3 style="display:inline"> Adventure Question </h3><br>
           Describe the MVC design pattern as it applies to web servers - start from initial HTTP request and end with writing the response.
+
+          <ol>
+          		<li> Request is made by browser, server will read URL and route to appropraite Controller </li>
+          		<li> The controller will invoke the model to read / change data, it encapsualtes all persistance </li>
+          		<li> The controller will invoke the view, which will prepare markup for the request which was sent</li>
+          		<li> The resulting HTML is returned in the HTTP Response </li>
+          </ol>
+
         </li>
         <li id="question16"><strong>Q:</strong>
         <h3 style="display:inline"> Feature Question </h3><br>
           Describe the pros and cons of version control.
+          <p>
+          		<ul>
+	          		<li>
+	          		Some Pros:
+	          		Version control promotes incremental changes in code to be stored continuously during progress of the project. It leaves hooks or points in the code where previous versions may be retrieve, or compared to the current HEAD or latest revision. It allows developers to have a common place to both store/retrieve code.
+	          		</li>
+	          		<li>
+	          		Some Cons:
+	          		Source control requries best practices, and when under utilized can create quite a mess. The quality requires frequent commits, good use of forking/branching, meaningful commit messages and things like this. If it is simply used as a file server for source, It can make things more confusing and hinder development progress.
+	          		</li>
+          		</ul>
+          </p>
         </li>
       </ul>
 	  </div>
@@ -179,7 +279,7 @@
   <style type="text/css">
     .invisibleQuestion
     {
-      color: #FFFFFF;
+      /* color: #FFFFFF; */
     }
   </style>
 </body>
