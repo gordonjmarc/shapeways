@@ -33,7 +33,7 @@ foreach($favoritesArr as $currentFavoritesKey => $currentFavoritesArr) {
 			array_push($artistFrequencyMap[$artist] , $currentFavoritesKey );
 		}
 		else {
-			$artistFrequencyMap[$artist]  = array($currentFavoritesKey );
+			$artistFrequencyMap[$artist] = array($currentFavoritesKey);
 		}
 	}
 }
@@ -45,7 +45,7 @@ foreach($artistFrequencyMap  as $artist => $frequency) {
 	}
 }
 
-//get all pairs of unique band pairs, which occur in 50 more or favorite lists
+//get all pairs of unique band pairs, which occur in 50 or more favorite lists
 $artists = array_keys($artistFrequencyMap);
 $pairsToCheck = array();
 
@@ -72,7 +72,7 @@ $pairsToCheck = array_keys($pairsToCheck); // we only wanted the band names, dro
 foreach($pairsToCheck as $pairStr) {
 	$pairStrs = explode(",",$pairStr);
 
-	$artist1= $pairStrs[0];
+	$artist1 = $pairStrs[0];
 	$artist2 = $pairStrs[1];
 
 	$intersect = array_intersect($artistFrequencyMap[$artist1] , $artistFrequencyMap[$artist2]);
